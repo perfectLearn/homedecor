@@ -24,3 +24,27 @@
 .address-form-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.address-form-head h3{font:600 24px 'Playfair Display',serif;margin:0}.address-close{border:0;background:none;font-size:25px;color:#777;cursor:pointer;line-height:1}
 .address-form label{display:block!important;font-size:11px!important;font-weight:600!important;margin:9px 0!important}.address-form input,.address-form select{display:block;width:100%;padding:10px;margin-top:5px;border:1px solid #ddd;outline:none;background:#fff;font-size:12px}.address-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 12px}.address-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}.address-actions .btn{width:auto;padding:11px 15px;font-size:11px}.address-cancel{background:#f1efeb;color:#555}
 @media(max-width:700px){.address-section-head{display:block}.address-section-head .btn{margin-top:12px}.address-grid{grid-template-columns:1fr}.address-empty{align-items:flex-start;flex-direction:column}.address-buttons{gap:8px}.saved-address-top{align-items:flex-start}.address-form-wrap{padding:15px}}
+
+
+/* Classy account navigation */
+.header{backdrop-filter:blur(14px);background:rgba(255,255,255,.94);box-shadow:0 8px 28px rgba(32,42,34,.06)}
+.header nav{gap:12px}
+.header nav a{transition:all .25s ease}
+.header nav a:hover{color:#a36a3c}
+.account-link{display:inline-flex!important;align-items:center;gap:9px;padding:7px 11px 7px 7px;border:1px solid transparent;border-radius:30px;min-width:105px}
+.account-link.signed-out{background:#f7f4ef;border-color:#e8e1d7}
+.account-link.signed-in{background:linear-gradient(135deg,#f8f4ed,#fff);border-color:#dfd2c2;box-shadow:0 5px 16px rgba(163,106,60,.10)}
+.account-icon,.account-avatar-mini{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:0 0 34px}
+.account-icon{background:#202a22;color:#fff;font-size:17px}
+.account-avatar-mini{background:linear-gradient(135deg,#a36a3c,#7d4c29);color:#fff;font:700 15px 'Playfair Display',serif;box-shadow:0 3px 10px rgba(125,76,41,.25)}
+.account-link-text{display:flex;flex-direction:column;align-items:flex-start;line-height:1.05;gap:4px;white-space:nowrap}
+.account-link-text strong{font-size:12px;letter-spacing:.1px}
+.account-link-text small{font-size:9px;font-weight:600;color:#8a877f;letter-spacing:.35px}
+.account-link.signed-in .account-link-text small{color:#477454}
+.account-link-text small i{display:inline-block;width:6px;height:6px;background:#4e9b63;border-radius:50%;margin-right:3px;box-shadow:0 0 0 3px rgba(78,155,99,.10)}
+.account-link.signed-out .account-link-text small{color:#a36a3c}
+.account-link.signed-out .account-link-text small:before{content:'● ';font-size:7px;color:#a36a3c}
+.cart-link{padding:8px 10px;border-radius:22px;background:#faf7f2;border:1px solid #eee5d9}
+.cart-link:hover{background:#f3ece2}
+.cart-link b{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px}
+@media(max-width:700px){.account-link{min-width:auto;padding-right:7px}.account-link-text{display:none}.account-icon,.account-avatar-mini{width:32px;height:32px;flex-basis:32px}.cart-link{padding:5px 7px}}
