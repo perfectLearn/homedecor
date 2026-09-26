@@ -2004,3 +2004,137 @@ footer a:not(.logo){
     }
 
 }
+/* =========================================================
+   MY ORDERS
+   ========================================================= */
+
+.orders-section{
+    margin-top:30px;
+    padding-top:28px;
+    border-top:1px solid #ddd;
+    text-align:left;
+}
+
+.orders-section h2{
+    font:600 28px 'Playfair Display',serif;
+    margin:0 0 6px;
+}
+
+.orders-subtitle{
+    color:#777;
+    font-size:11px;
+    margin-bottom:18px;
+}
+
+.order-list{
+    display:grid;
+    gap:14px;
+}
+
+.order-card{
+    background:#fcfbf8;
+    border:1px solid #ddd;
+    padding:16px;
+}
+
+.order-card-header{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding-bottom:12px;
+    border-bottom:1px solid #e5e1d9;
+}
+
+.order-card-header b{
+    font-size:13px;
+}
+
+.order-card-header small{
+    display:block;
+    color:#888;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.order-status{
+    color:#39704a;
+    background:#eaf5ed;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:700;
+    height:max-content;
+}
+
+.order-products{
+    display:grid;
+    gap:9px;
+    margin-top:13px;
+}
+
+.order-product{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.order-product img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    background:#eee;
+}
+
+.order-product-info{
+    flex:1;
+}
+
+.order-product-info b{
+    display:block;
+    font-size:11px;
+}
+
+.order-product-info small{
+    color:#777;
+    font-size:10px;
+}
+
+.order-product-price{
+    font-size:11px;
+    font-weight:700;
+}
+
+.order-total{
+    display:flex;
+    justify-content:space-between;
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid #e5e1d9;
+    font-size:13px;
+}
+
+.order-address{
+    margin-top:12px;
+    padding:10px;
+    background:#f3f0ea;
+    color:#666;
+    font-size:10px;
+    line-height:1.6;
+}
+
+.orders-empty{
+    padding:25px;
+    background:#fcfbf8;
+    border:1px dashed #d8d1c7;
+    text-align:center;
+}
+
+.orders-empty div{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.orders-empty p{
+    color:#777;
+    font-size:11px;
+}
