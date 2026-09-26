@@ -611,7 +611,7 @@ function placeOrder(){
 
             a: formatSavedAddress(a),
 
-            email: a.email,
+            email: user.email,
 
             addressType:
                 selected.value,
