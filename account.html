@@ -1,1 +1,762 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Account | Perfect Home</title><link rel="stylesheet" href="css/style.css"></head><body><div class="topbar">Free delivery on orders above ₹999 <span>Easy 7-day returns</span><span>Secure payments</span></div><header class="header"><a class="logo" href="index.html">Perfect<span>Home</span></a><div class="search"><input id="searchInput" placeholder="Search furniture..."><button onclick="performSearch()">🔍</button></div><nav><a href="products.html">Shop</a><a href="account.html">Account</a><a class="cart-link" href="cart.html">🛒 <b id="cartCount">0</b></a></nav></header><main class="account-page"><div class="auth-card"><div class="auth-brand"><span>PH</span><div><b>Perfect Home</b><small>Welcome to your account</small></div></div><div class="tabs"><button id="loginTab" class="active" onclick="showAuth('login')">Sign in</button><button id="signupTab" onclick="showAuth('signup')">Create account</button></div><div id="authMessage"></div><form id="loginForm" onsubmit="login(event)"><label>Email address<input id="loginEmail" type="email" required placeholder="you@example.com"></label><label>Password<input id="loginPassword" type="password" minlength="6" required placeholder="Enter your password"></label><button class="btn primary full">Sign in</button><p class="switch">New to Perfect Home? <a onclick="showAuth('signup')">Create an account</a></p></form><form id="signupForm" class="hidden" onsubmit="signup(event)"><label>Full name<input id="signupName" required placeholder="Your full name"></label><label>Email address<input id="signupEmail" type="email" required placeholder="you@example.com"></label><label>Mobile number<input id="signupPhone" pattern="[0-9]{10}" required placeholder="10-digit mobile number"></label><label>Password<input id="signupPassword" type="password" minlength="6" required placeholder="At least 6 characters"></label><label>Confirm password<input id="signupConfirm" type="password" minlength="6" required placeholder="Re-enter password"></label><button class="btn primary full">Create account</button><p class="switch">Already have an account? <a onclick="showAuth('login')">Sign in</a></p></form><div id="accountPanel" class="hidden"></div></div></main><footer><div><a class="logo" href="index.html">Perfect<span>Home</span></a><p>Furniture for modern Indian homes.</p></div><div><b>Shop</b><a href="products.html">All furniture</a></div><div><b>Customer care</b><a href="cart.html">Cart</a></div></footer><script src="js/products.js"></script><script src="js/app.js"></script><script src="js/auth.js"></script></body></html>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0"
+    >
+
+    <title>
+        Account | Perfect Home
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
+
+<div class="topbar">
+
+    Free delivery on orders above ₹999
+
+    <span>
+        Easy 7-day returns
+    </span>
+
+    <span>
+        Secure payments
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="header">
+
+    <a
+        class="logo"
+        href="index.html"
+    >
+        Perfect<span>Home</span>
+    </a>
+
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            placeholder="Search furniture..."
+        >
+
+        <button
+            onclick="performSearch()"
+        >
+            🔍
+        </button>
+
+    </div>
+
+
+    <nav>
+
+        <a href="products.html">
+            Shop
+        </a>
+
+        <a href="account.html">
+            Account
+        </a>
+
+        <a
+            class="cart-link"
+            href="cart.html"
+        >
+            🛒
+            <b id="cartCount">
+                0
+            </b>
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     ACCOUNT
+     ===================================================== -->
+
+<main class="account-page">
+
+
+    <div class="auth-card">
+
+
+        <!-- BRAND -->
+
+        <div class="auth-brand">
+
+            <span>
+                PH
+            </span>
+
+            <div>
+
+                <b>
+                    Perfect Home
+                </b>
+
+                <small>
+                    Welcome to your account
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN / SIGNUP TABS -->
+
+        <div class="tabs">
+
+            <button
+                id="loginTab"
+                class="active"
+                onclick="showAuth('login')"
+            >
+                Sign in
+            </button>
+
+
+            <button
+                id="signupTab"
+                onclick="showAuth('signup')"
+            >
+                Create account
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            id="authMessage"
+        ></div>
+
+
+        <!-- =================================================
+             LOGIN
+             ================================================= -->
+
+        <form
+            id="loginForm"
+            onsubmit="login(event)"
+        >
+
+            <label>
+
+                Email address
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                >
+
+            </label>
+
+
+            <label>
+
+                Password
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    minlength="6"
+                    required
+                    placeholder="Enter your password"
+                >
+
+            </label>
+
+
+            <button
+                class="btn primary full"
+            >
+                Sign in
+            </button>
+
+
+            <p class="switch">
+
+                New to Perfect Home?
+
+                <a
+                    onclick="showAuth('signup')"
+                >
+                    Create an account
+                </a>
+
+            </p>
+
+        </form>
+
+
+        <!-- =================================================
+             SIGN UP
+             ================================================= -->
+
+        <form
+            id="signupForm"
+            class="hidden"
+            onsubmit="signup(event)"
+        >
+
+            <label>
+
+                Full name
+
+                <input
+                    id="signupName"
+                    required
+                    placeholder="Your full name"
+                >
+
+            </label>
+
+
+            <label>
+
+                Email address
+
+                <input
+                    id="signupEmail"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                >
+
+            </label>
+
+
+            <label>
+
+                Mobile number
+
+                <input
+                    id="signupPhone"
+                    pattern="[0-9]{10}"
+                    required
+                    placeholder="10-digit mobile number"
+                >
+
+            </label>
+
+
+            <label>
+
+                Password
+
+                <input
+                    id="signupPassword"
+                    type="password"
+                    minlength="6"
+                    required
+                    placeholder="At least 6 characters"
+                >
+
+            </label>
+
+
+            <label>
+
+                Confirm password
+
+                <input
+                    id="signupConfirm"
+                    type="password"
+                    minlength="6"
+                    required
+                    placeholder="Re-enter password"
+                >
+
+            </label>
+
+
+            <button
+                class="btn primary full"
+            >
+                Create account
+            </button>
+
+
+            <p class="switch">
+
+                Already have an account?
+
+                <a
+                    onclick="showAuth('login')"
+                >
+                    Sign in
+                </a>
+
+            </p>
+
+        </form>
+
+
+        <!-- =================================================
+             EXISTING ACCOUNT PANEL
+             ================================================= -->
+
+        <div
+            id="accountPanel"
+            class="hidden"
+        ></div>
+
+
+        <!-- =================================================
+             MY ORDERS
+             ================================================= -->
+
+        <section
+            id="myOrdersSection"
+            class="orders-section hidden"
+        >
+
+            <h2>
+                My Orders
+            </h2>
+
+            <p class="orders-subtitle">
+                Your recent Perfect Home orders
+            </p>
+
+
+            <div
+                id="ordersList"
+                class="order-list"
+            ></div>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+
+    <div>
+
+        <a
+            class="logo"
+            href="index.html"
+        >
+            Perfect<span>Home</span>
+        </a>
+
+        <p>
+            Furniture for modern Indian homes.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <b>
+            Shop
+        </b>
+
+        <a href="products.html">
+            All furniture
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <b>
+            Customer care
+        </b>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+
+</footer>
+
+
+<!-- =====================================================
+     SCRIPTS
+     ===================================================== -->
+
+<script src="js/products.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/auth.js"></script>
+
+
+<!-- =====================================================
+     MY ORDERS SCRIPT
+     ===================================================== -->
+
+<script>
+
+function renderMyOrders(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                'perfectHomeCurrentUser'
+            ) || 'null'
+        );
+
+
+    const section =
+        document.getElementById(
+            'myOrdersSection'
+        );
+
+    const list =
+        document.getElementById(
+            'ordersList'
+        );
+
+
+    if(!user){
+
+        section.classList.add(
+            'hidden'
+        );
+
+        return;
+    }
+
+
+    section.classList.remove(
+        'hidden'
+    );
+
+
+    const allOrders =
+        JSON.parse(
+            localStorage.getItem(
+                'perfectHomeOrders'
+            ) || '[]'
+        );
+
+
+    /*
+       Show only orders belonging
+       to the signed-in user.
+    */
+
+    const orders =
+        allOrders.filter(
+            order =>
+                order.email &&
+                order.email.toLowerCase() ===
+                user.email.toLowerCase()
+        );
+
+
+    if(!orders.length){
+
+        list.innerHTML = `
+
+        <div class="orders-empty">
+
+            <div>
+                📦
+            </div>
+
+            <b>
+                No orders yet
+            </b>
+
+            <p>
+                Your placed orders will appear here.
+            </p>
+
+            <a
+                class="btn primary"
+                href="products.html"
+            >
+                Start Shopping
+            </a>
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    list.innerHTML =
+        orders.map(
+            order => {
+
+                const items =
+                    order.items || [];
+
+
+                return `
+
+                <div class="order-card">
+
+
+                    <!-- ORDER HEADER -->
+
+                    <div class="order-card-header">
+
+                        <div>
+
+                            <b>
+                                #${escapeOrder(
+                                    order.order
+                                )}
+                            </b>
+
+                            <small>
+                                ${escapeOrder(
+                                    order.date
+                                )}
+                            </small>
+
+                        </div>
+
+
+                        <span
+                            class="order-status"
+                        >
+                            ${escapeOrder(
+                                order.status ||
+                                'Order Placed'
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <!-- PRODUCTS -->
+
+                    <div class="order-products">
+
+                        ${
+                            items.map(
+                                item => `
+
+                                <div class="order-product">
+
+                                    <img
+                                        src="${escapeOrder(
+                                            item.image || ''
+                                        )}"
+                                        alt="${escapeOrder(
+                                            item.name
+                                        )}"
+                                    >
+
+
+                                    <div
+                                        class="order-product-info"
+                                    >
+
+                                        <b>
+                                            ${escapeOrder(
+                                                item.name
+                                            )}
+                                        </b>
+
+                                        <small>
+                                            Qty:
+                                            ${item.qty}
+                                        </small>
+
+                                    </div>
+
+
+                                    <div
+                                        class="order-product-price"
+                                    >
+                                        ${money(
+                                            item.price *
+                                            item.qty
+                                        )}
+                                    </div>
+
+                                </div>
+
+                                `
+                            ).join('')
+                        }
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div
+                        class="order-address"
+                    >
+
+                        <b>
+                            ${
+                                order.addressType === 'office'
+                                ? '🏢 Office Address'
+                                : '🏠 Home Address'
+                            }
+                        </b>
+
+                        <br>
+
+                        ${escapeOrder(
+                            order.a
+                        )}
+
+                        <br>
+
+                        📱
+                        ${escapeOrder(
+                            order.ph
+                        )}
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div
+                        class="order-total"
+                    >
+
+                        <span>
+                            Total
+                        </span>
+
+                        <b>
+                            ${money(
+                                order.total || 0
+                            )}
+                        </b>
+
+                    </div>
+
+
+                    <div
+                        style="
+                            margin-top:8px;
+                            font-size:10px;
+                            color:#777;
+                        "
+                    >
+
+                        Payment:
+                        ${escapeOrder(
+                            order.payment
+                        )}
+
+                    </div>
+
+
+                </div>
+
+                `;
+
+            }
+        ).join('');
+}
+
+
+/* =====================================================
+   SAFE TEXT
+   ===================================================== */
+
+function escapeOrder(value){
+
+    return String(
+        value ?? ''
+    ).replace(
+        /[&<>"']/g,
+        function(m){
+
+            return {
+
+                '&':'&amp;',
+                '<':'&lt;',
+                '>':'&gt;',
+                '"':'&quot;',
+                "'":'&#39;'
+
+            }[m];
+
+        }
+    );
+}
+
+
+/* =====================================================
+   LOAD ORDERS
+   ===================================================== */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function(){
+
+        renderMyOrders();
+
+    }
+);
+
+
+/*
+   Run again shortly after auth.js
+   finishes its account rendering.
+*/
+
+setTimeout(
+    renderMyOrders,
+    300
+);
+
+</script>
+
+
+</body>
+
+</html>
